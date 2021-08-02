@@ -12,4 +12,4 @@ COPY . /app
 
 EXPOSE 3333
 
-CMD ["yarn", "start"]
+CMD ["yarn", "dev:server"]

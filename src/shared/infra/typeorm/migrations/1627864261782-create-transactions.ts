@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm'
 
-export class creatFinancialTransactions1627864261782 implements MigrationInterface {
+export class createTransactions1627864261782 implements MigrationInterface {
 
   private readonly TABLE_NAME = 'transactions'
 
@@ -20,7 +20,7 @@ export class creatFinancialTransactions1627864261782 implements MigrationInterfa
           name: 'value',
           type: 'numeric',
           precision: 14,
-          scale: 4,
+          scale: 4
         },
         {
           name: 'description',
@@ -41,6 +41,34 @@ export class creatFinancialTransactions1627864261782 implements MigrationInterfa
           name: 'deleted_at',
           type: 'timestamp',
           isNullable: true,
+        },
+        {
+          name: "user_id",
+          type: "integer",
+          isNullable: true,
+        },
+        {
+          name: "category_id",
+          type: "integer",
+          isNullable: true,
+        },
+      ],
+      foreignKeys: [
+        {
+          name: "FKTrasactionUser",
+          referencedTableName: "users",
+          referencedColumnNames: ["id"],
+          columnNames: ["user_id"],
+          onDelete: "SET NULL",
+          onUpdate: "SET NULL",
+        },
+        {
+          name: "FKTrasactionCategory",
+          referencedTableName: "categories",
+          referencedColumnNames: ["id"],
+          columnNames: ["category_id"],
+          onDelete: "SET NULL",
+          onUpdate: "SET NULL",
         },
       ],
     }))

@@ -1,15 +1,19 @@
 import {
+  BaseEntity,
   Entity,
+  PrimaryGeneratedColumn,
   Column,
+  JoinColumn,
   CreateDateColumn,
   UpdateDateColumn,
-  PrimaryGeneratedColumn,
+  OneToMany,
 } from 'typeorm';
-
 import { Exclude } from 'class-transformer';
 
+import Transaction from '@modules/transactions/infra/typeorm/entities/Transaction';
+
 @Entity('users')
-class User {
+class User extends BaseEntity {
   @PrimaryGeneratedColumn('increment')
   id: string;
 
@@ -22,6 +26,12 @@ class User {
   @Column()
   @Exclude()
   password: string;
+
+  @JoinColumn({ name: 'user_id' })
+  @OneToMany(() => Transaction, transaction => transaction.category, {
+    cascade: ['insert', 'update'],
+  })
+  transactions: Transaction[];
 
   @CreateDateColumn()
   created_at: Date;
