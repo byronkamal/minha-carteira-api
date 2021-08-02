@@ -7,7 +7,6 @@ import {
   OneToMany,
   CreateDateColumn,
   UpdateDateColumn,
-  DeleteDateColumn,
 } from 'typeorm'
 
 import Transaction from './Transaction'
@@ -28,13 +27,10 @@ class Category extends BaseEntity {
   transactions: Transaction[]
 
   @CreateDateColumn()
-  createdAt: Date
+  created_at: Date
 
   @UpdateDateColumn()
-  updatedAt: Date
-
-  @DeleteDateColumn()
-  deletedAt?: Date
+  updated_at: Date
 }
 
 export default Category

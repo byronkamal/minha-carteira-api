@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
 import usersRouter from '../../../../modules/users/infra/http/routes/users.routes';
-import transactionRouter from '../../../../modules/transactions/infra/http/routes/trasaction.routes';
+import transactionRouter from '../../../../modules/transactions/infra/http/routes/transaction.routes';
 
 const routes = Router();
 

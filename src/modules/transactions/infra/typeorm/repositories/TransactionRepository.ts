@@ -30,9 +30,10 @@ class TransacitonRepository implements ITransactionsRepository {
     return transaction;
   }
 
-  public async  show(user_id: number): Promise<Transaction[] | undefined>{
+  public async show(user_id: number): Promise<Transaction[] | undefined>{
     const transactions = await this.ormRepository.find({
       where: { user_id },
+      relations: ['category']
     });
 
     return transactions;
