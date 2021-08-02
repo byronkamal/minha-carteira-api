@@ -25,7 +25,6 @@ describe('CreateUser', () => {
     });
 
     expect(user).toHaveProperty('id');
-    expect(user.user_type).toEqual('common');
   });
 
   it('Should be able to create a new health user', async () => {
@@ -33,11 +32,9 @@ describe('CreateUser', () => {
       name: 'paulo',
       email: 'paulo@gmail.com',
       password: '123456',
-      user_type: 'health',
     });
 
     expect(user).toHaveProperty('id');
-    expect(user.user_type).toEqual('health');
   });
 
   it('Should not be able to create a new user with email already exists', async () => {

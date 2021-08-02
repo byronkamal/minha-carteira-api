@@ -9,11 +9,7 @@ class UserRepository implements IUsersRepository {
   public async create(data: ICreateUserDTO): Promise<User> {
     const user = new User();
 
-    if (!data.user_type) {
-      Object.assign(user, { id: uuid() }, data, { user_type: 'common' });
-    } else {
-      Object.assign(user, { id: uuid() }, data);
-    }
+    Object.assign(user, { id: uuid() }, data);
 
     this.users.push(user);
     return user;

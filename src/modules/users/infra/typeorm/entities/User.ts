@@ -10,7 +10,7 @@ import { Exclude } from 'class-transformer';
 
 @Entity('users')
 class User {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn('increment')
   id: string;
 
   @Column()
@@ -22,9 +22,6 @@ class User {
   @Column()
   @Exclude()
   password: string;
-
-  @Column('int')
-  user_type: 'health' | 'common';
 
   @CreateDateColumn()
   created_at: Date;
