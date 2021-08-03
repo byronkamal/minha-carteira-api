@@ -27,12 +27,12 @@ Crie e inicie os containers dos serviços:
  docker-compose up
  ```
 
-Em outra aba do terminal execute os seguintes comandos para o banco de dados:
+Em outra aba do terminal execute os seguinte comando para o banco de dados:
 
-`````
+```
 yarn typeorm migration:run
 
-````
+```
 
 Acesse a aplicação na porta 3333 do seu `browser`: [http://localhost:3333]()
 
