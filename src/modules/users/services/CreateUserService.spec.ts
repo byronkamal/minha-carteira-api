@@ -17,7 +17,7 @@ describe('CreateUser', () => {
     );
   });
 
-  it('Should be able to create a new common user', async () => {
+  it('Should be able to create a new user', async () => {
     const user = await createUserService.execute({
       name: 'paulo',
       email: 'paulo@gmail.com',
@@ -27,15 +27,6 @@ describe('CreateUser', () => {
     expect(user).toHaveProperty('id');
   });
 
-  it('Should be able to create a new health user', async () => {
-    const user = await createUserService.execute({
-      name: 'paulo',
-      email: 'paulo@gmail.com',
-      password: '123456',
-    });
-
-    expect(user).toHaveProperty('id');
-  });
 
   it('Should not be able to create a new user with email already exists', async () => {
     await createUserService.execute({
